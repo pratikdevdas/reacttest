@@ -59,13 +59,14 @@ const App = () => {
       <h1>Notes</h1>
       <div>
         <button onClick={() => setShowAll(!showAll)}>
-          show {showAll ? "imp only" : "all"}
+          show {showAll ? "imp only" : "all"} buttons
         </button>
       </div>
       <ul>
         {notesToShow.map((note,i) => (
           <Note key={i} note={note} toggleImportance={() => toggleImportanceOf(note.id)} />
         ))}
+
       </ul>
       <form onSubmit={addNote}>
         <input value={newNote} onChange={handleNoteChange} />
