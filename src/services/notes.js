@@ -1,7 +1,10 @@
-//extracting the backend module of axios here
-
 import axios from 'axios'
-const baseUrl = 'http://localhost:3002/notes'
+const baseUrl = 'http://localhost:3001/notes'
+
+const getAll2 = () => {
+  const request = axios.get(baseUrl)
+  return request.then(response => response.data)
+}
 
 const getAll = () => {
   const request = axios.get(baseUrl)
@@ -13,6 +16,7 @@ const getAll = () => {
   }
   return request.then(response => response.data.concat(nonExisting))
 }
+
 const create = newObject => {
   const request = axios.post(baseUrl, newObject)
   return request.then(response => response.data)
@@ -23,4 +27,6 @@ const update = (id, newObject) => {
   return request.then(response => response.data)
 }
 
-export default { getAll,create,update }
+export default { 
+  getAll, create, update
+}
